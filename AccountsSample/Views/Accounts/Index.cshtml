@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AccountModel>
+
+@foreach (var account in Model)
+{
+    <div id="account-@account.Id">
+        <span>@account.Name</span>
+        <button onclick="showEdit(@account.Id)">Edit</button>
+    </div>
+}
+
+@section Scripts {
+    <script>
+    function showEdit(accountId) {
+        $.ajax({
+            url: '@Url.Action("GetEditForm", "Accounts")/' + accountId,
+            type: 'GET',
+            success: function (result) {
+                $('#account-' + accountId).html(result);
+            }
+        });
+    }
+
+    function saveEdit(accountId) {
+        var accountName = $('#edit-name-' + accountId).val();
+        $.ajax({
+            url: '@Url.Action("SaveEdit", "Accounts")',
+            type: 'POST',
+            data: { Id: accountId, Name: accountName },
+            success: function (result) {
+                console.log(accountId);
+                console.log(result);
+                $('#account-' + accountId).html(result);
+            }
+        });
+    }
+    </script>
+}
