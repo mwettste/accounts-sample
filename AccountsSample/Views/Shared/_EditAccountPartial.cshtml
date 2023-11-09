@@ -1,4 +1,4 @@
 @model AccountModel
 
-<input type="text" id="edit-name-@Model.Id" value="@Model.Name" />
-<button onclick="saveEdit(@Model.Id)">Save</button>
+<input type="text" style="margin: 5px" id="edit-name-@Model.Id" value="@Model.Name" />
+<button type="button" class="btn btn-primary" style="margin: 5px" onclick="saveEdit(@Model.Id)">Save</button>

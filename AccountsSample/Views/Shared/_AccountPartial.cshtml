@@ -1,6 +1,6 @@
 @model AccountModel
 
 <div id="account-@Model.Id">
-    <span>@Model.Name</span>
-    <button onclick="showEdit(@Model.Id)">Edit</button>
+    <span style="margin: 5px">@Model.Name</span>
+    <button type="button" class="btn btn-primary" style="margin: 5px" onclick="showEdit(@Model.Id)">Edit</button>
 </div>

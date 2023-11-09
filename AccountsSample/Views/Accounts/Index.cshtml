@@ -3,8 +3,8 @@
 @foreach (var account in Model)
 {
     <div id="account-@account.Id">
-        <span>@account.Name</span>
-        <button onclick="showEdit(@account.Id)">Edit</button>
+        <span style="margin: 5px">@account.Name</span>
+        <button type="button" class="btn btn-primary" style="margin: 5px" onclick="showEdit(@account.Id)">Edit</button>
     </div>
 }
 
